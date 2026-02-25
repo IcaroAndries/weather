@@ -1,47 +1,80 @@
-# Svelte + TS + Vite
+# 🌤️ Glassmorphism Weather App
 
-This template should help get you started developing with Svelte and TypeScript in Vite.
+A modern, immersive weather dashboard built with **Svelte**, **TypeScript**, and **Vite**. This application features a stunning glassmorphism design, real-time data from the Open-Meteo API, dynamic weather-themed backgrounds, and interactive data visualization.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+## ✨ Key Features
 
-## Need an official Svelte framework?
+- **Real-Time Data**: Get the current temperature, weather conditions, humidity, UV index, and rain chances instantly.
+- **Interactive Hourly Chart**: View detailed 24-hour forecasts. Toggle seamlessly between `Temperature (°C)`, `Humidity (%)`, and `Precipitation (mm)`.
+- **Search Autocomplete**: A sleek, debounced search bar connects to the Geocoding API to provide real-time location suggestions as you type.
+- **Dynamic Theming & Parallax**: The dashboard's background and ambiance dynamically adapt to the searched location's current weather (Sunny, Cloudy, Rainy). Elements float smoothly over a parallax scrolling background.
+- **Realistic Pure CSS Rain**: When it rains in the searched location, the app renders a highly realistic, hardware-accelerated pure CSS rain animation.
+- **Geolocation Support**: Automatically detects your location on load to provide immediate, localized weather insights.
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+## 🛠️ Tech Stack
 
-## Technical considerations
+- **Framework**: [Svelte](https://svelte.dev/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Bundler**: [Vite](https://vitejs.dev/)
+- **Styling**: Vanilla CSS & Sass (Indented syntax for streamlined component design)
+- **Charts**: [Chart.js](https://www.chartjs.org/) for interactive data visualization
+- **APIs**: 
+  - [Open-Meteo Weather API](https://open-meteo.com/) (No API key required)
+  - Browser Geolocation API
 
-**Why use this over SvelteKit?**
+## 🚀 Getting Started
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+### Prerequisites
+Make sure you have Node.js installed (v18+ recommended).
 
-This template contains as little as possible to get started with Vite + TypeScript + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
+### Installation
 
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/weather-app.git
+   cd weather-app
+   ```
 
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-**Why include `.vscode/extensions.json`?**
+4. **View the app:**
+   Open your browser and navigate to `http://localhost:5173`.
 
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
+## 📁 Project Structure
 
-**Why enable `allowJs` in the TS template?**
-
-While `allowJs: false` would indeed prevent the use of `.js` files in the project, it does not prevent the use of JavaScript syntax in `.svelte` files. In addition, it would force `checkJs: false`, bringing the worst of both worlds: not being able to guarantee the entire codebase is TypeScript, and also having worse typechecking for the existing JavaScript. In addition, there are valid use cases in which a mixed codebase may be relevant.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/rixo/svelte-hmr#svelte-hmr).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```ts
-// store.ts
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
+```text
+src/
+├── components/          # Reusable UI elements
+│   ├── MainCard/        # The primary weather data display
+│   ├── RainEffect/      # Pure CSS weather animation component
+│   ├── SearchBar/       # Glassmorphism autocomplete search input
+│   └── WeatherChart/    # Interactive Chart.js forecast component
+├── lib/
+│   ├── api.ts           # Open-Meteo fetch logic (Geocoding & Forecast)
+│   └── types.ts         # TypeScript interfaces for API responses
+├── App.svelte           # Main application state and layout
+├── app.sass             # Global styles, variables, and dynamic theming
+└── main.ts              # Svelte app entry point
 ```
+
+## 💅 Design Philosophy: Glassmorphism
+
+The application strictly adheres to modern glassmorphism UI principles to create a sleek, premium feel:
+- Deep background blurs using `backdrop-filter`.
+- Semi-transparent, vibrant white borders representing glass reflections.
+- Soft, spread-out shadows for depth simulation.
+- High-contrast, highly legible typography overlaid on frosted elements.
+
+## 📜 License
+
+This project is licensed under the MIT License.
